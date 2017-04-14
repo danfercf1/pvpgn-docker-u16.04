@@ -30,7 +30,6 @@ services:
       - 6200:6200
     links:
       - mysql:db
-      - mysql:mysql
 networks:
   default:
     external:
