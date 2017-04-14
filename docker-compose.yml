@@ -25,8 +25,12 @@ services:
       - "/usr/local/pvpgn/log:/var/log/pvpgn"
       - "/usr/local/ghost/maps:/usr/local/pvpgn/maps"
     container_name: bnetd
+    ports:
+      - 6112:6112
+      - 6200:6200
     links:
       - mysql:db
+      - mysql:mysql
 networks:
   default:
     external:
