@@ -1,33 +1,33 @@
 version: '2'
 services:
   mysql:
-      image: "mysql:5.7"
-      volumes:
-        - "/usr/local/mysql/:/etc/mysql/conf.d"
-      environment:
-        - MYSQL_ROOT_PASSWORD=mysql_pass1234567890
-      container_name: "mysql"
-      ports:
-        - 3306:3306
+    image: "mysql:5.7"
+    volumes:
+      - "/usr/local/mysql/:/etc/mysql/conf.d"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql_pass1234567890
+    container_name: "mysql"
+    ports:
+      - 3306:3306
   phpmyadmin:
-      image: "phpmyadmin/phpmyadmin"
-      environment:
-        - MYSQL_ROOT_PASSWORD=mysql_pass1234567890
-      container_name: "phpmyadmin"
-      ports:
-        - 8080:80
-      link:
-        - mysql
+    image: "phpmyadmin/phpmyadmin"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql_pass1234567890
+    container_name: "phpmyadmin"
+    ports:
+      - 8080:80
+    link:
+      - mysql
   bnetd:
-      image: "quay.io/danfercf/ghost-pvpgn-x64:latest"
-      volumes:
-        - "/usr/local/pvpgn/etc:/usr/local/pvpgn/etc"
-        - "/usr/local/pvpgn/log:/var/log/pvpgn"
-        - "/usr/local/ghost/maps:/usr/local/pvpgn/maps"
-      container_name: bnetd
-      link:
-        - mysql
+    image: "quay.io/danfercf/ghost-pvpgn-x64:latest"
+    volumes:
+      - "/usr/local/pvpgn/etc:/usr/local/pvpgn/etc"
+      - "/usr/local/pvpgn/log:/var/log/pvpgn"
+      - "/usr/local/ghost/maps:/usr/local/pvpgn/maps"
+    container_name: bnetd
+    link:
+      - mysql
 networks:
- default:
-  external:
-   name: pvpgn_default
+  default:
+    external:
+      name: pvpgn_default
