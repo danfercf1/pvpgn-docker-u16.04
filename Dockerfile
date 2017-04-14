@@ -7,7 +7,7 @@ RUN git clone https://github.com/danfercf1/pvpgn-server.git pvpgn
 WORKDIR /usr/src/pvpgn/ 
 RUN cmake -D CMAKE_INSTALL_PREFIX=/ -D WITH_MYSQL=true -D WITH_LUA=true ./ && make && make install
 WORKDIR /
-#ADD files/. /var/pvpgn/files/
+COPY address_translation.conf /etc/pvpgn
 COPY bnetd.conf /etc/pvpgn
 COPY channel.conf /etc/pvpgn
 EXPOSE 6112 6200
