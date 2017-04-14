@@ -17,7 +17,7 @@ services:
     ports:
       - 8080:80
     links:
-      - mysql
+      - mysql:db
   bnetd:
     image: "quay.io/danfercf/ghost-pvpgn-x64:latest"
     volumes:
@@ -26,7 +26,7 @@ services:
       - "/usr/local/ghost/maps:/usr/local/pvpgn/maps"
     container_name: bnetd
     links:
-      - mysql
+      - mysql:db
 networks:
   default:
     external:
