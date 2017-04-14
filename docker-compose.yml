@@ -1,0 +1,13 @@
+version: '2'
+services:
+  bnetd:
+    image: "pvpgn-server-x64:0.1"
+    volumes:
+      - "/usr/local/pvpgn/etc:/usr/local/pvpgn/etc"
+      - "/usr/local/pvpgn/log:/var/log/pvpgn"
+      - "/usr/local/ghost/maps:/usr/local/pvpgn/maps"
+    container_name: bnetd
+networks:
+ default:
+  external:
+   name: pvpgn_default
