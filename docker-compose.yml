@@ -16,7 +16,7 @@ services:
     container_name: "phpmyadmin"
     ports:
       - 8080:80
-    link:
+    links:
       - mysql
   bnetd:
     image: "quay.io/danfercf/ghost-pvpgn-x64:latest"
@@ -25,7 +25,7 @@ services:
       - "/usr/local/pvpgn/log:/var/log/pvpgn"
       - "/usr/local/ghost/maps:/usr/local/pvpgn/maps"
     container_name: bnetd
-    link:
+    links:
       - mysql
 networks:
   default:
