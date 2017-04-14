@@ -19,7 +19,7 @@ services:
     links:
       - mysql:db
   bnetd:
-    image: "quay.io/danfercf/ghost-pvpgn-x64:latest"
+    image: "quay.io/danfercf/server-pvpgn-x64:latest"
     volumes:
       - "/usr/local/pvpgn/etc:/usr/local/pvpgn/etc"
       - "/usr/local/pvpgn/log:/var/log/pvpgn"
