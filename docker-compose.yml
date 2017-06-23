@@ -9,6 +9,7 @@ services:
     container_name: "mysql"
     ports:
       - 3306:3306
+    restart: always
   phpmyadmin:
     image: "phpmyadmin/phpmyadmin"
     environment:
@@ -16,6 +17,7 @@ services:
     container_name: "phpmyadmin"
     ports:
       - 8080:80
+    restart: always
     links:
       - mysql:db
   bnetd:
@@ -28,6 +30,7 @@ services:
     ports:
       - 6112:6112
       - 6200:6200
+    restart: always
     links:
       - mysql:db
 networks:
